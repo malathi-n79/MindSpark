@@ -34,19 +34,32 @@
 
 5. Done! Now open a new tab and get inspired ✨
 
+---
+
 📸 Preview
+
 ![MindSpark Screenshot](preview1.png)
+---
 ![MindSpark Screenshot](preview2.png)
+---
 ![MindSpark Screenshot](preview3.png)
+---
 
 🤝 Credits
+
 Quotes from public domain sources
 Images from Unsplash / Pexels
 
+---
+
 📜 License
+
 MIT License © 2025 [Malathi N]
 
+---
+
 💡 Stay Inspired
+
 “Dream is not that which you see while sleeping, it is something that does not let you sleep.”
 — Dr. APJ Abdul Kalam
 
