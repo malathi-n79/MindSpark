@@ -1,0 +1,36 @@
+{
+    "manifest_version": 3,
+    "name": "MindSpark - quotes & beautiful images",
+    "description": "MindSpark is a Chrome Extension that delivers daily motivational quotes and beautiful images to inspire your productivity!",
+    "version": "1.0",
+    "author": "Malathi N",
+
+    "action": {
+        "default_title": "MindSpark - Daily Inspiration",
+        "default_icon" : "static/icons/icons64.png",
+        "default_popup" : "popup.html"
+    },
+
+    "chrome_url_overrides": {
+        "newtab": "index.html"
+    },
+
+    "icons": {
+        "64": "static/icons/icons64.png",
+        "32": "static/icons/icons32.png",
+        "16": "static/icons/icons16.png"
+    },
+
+    "permissions": [
+        "activeTab",
+        "storage",
+        "topSites"
+    ],
+    
+    "web_accessible_resources": [
+      {
+        "resources": ["static/data/quotes.json"],
+        "matches": ["<all_urls>"]
+      }
+    ]
+}

@@ -1,0 +1,695 @@
+html, body {
+  background-color: black !important;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.background-container {
+  position: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: "Roboto Slab", serif;
+  height: 100%;
+  width: 100%;
+  background-position: center;
+  opacity: 0;
+  -webkit-transition: opacity 0.8s ease-in-out; /* Increased from 0.5s */
+  transition: opacity 0.8s ease-in-out; /* Increased from 0.5s */
+}
+
+.head-container {
+    color: white;
+    padding-left: 2%;
+    padding-top: 2%;
+}
+
+.main-container {
+  margin: auto;
+  position: relative;
+  z-index: 5;
+  display: flex;
+  padding: 7% 0;
+  width: 90%;
+  height: 90%;
+  color: white;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  text-shadow: #191919 2px 2px 30px;
+  opacity: 0;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+}
+
+.time {
+  font-size: 1500%;
+  line-height: 1;
+}
+
+.todo {
+  flex: 1;
+}
+
+.message {
+  flex: 1;
+  font-size: 500%;
+}
+
+#quotes {
+  font-size: 120%;
+}
+
+#change-btn {
+  cursor: pointer;
+  margin: auto;
+  width: 0px;
+  height: 0px;
+  background: url("/static/images/refresh.png");
+  padding: 15px;
+}
+
+#change-btn:hover {
+  background: url("/static/images/refresh_gray.png");
+}
+
+.form-control {
+  background-image: linear-gradient(0deg, white 2px, rgba(0, 150, 136, 0) 0),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.26) 1px, transparent 0) !important;
+  color: white !important;
+}
+
+.input-text {
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.input-text .form-control {
+  padding: 10px;
+  text-align: center;
+}
+
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: white !important;
+  opacity: 1 !important;
+  font-size: 100% !important;
+  text-align: center;
+  /* Firefox */
+}
+
+#todo-container p {
+  font-size: 200%;
+}
+
+#dropdown-btn {
+    color: white;
+}
+
+
+/* Add these new styles at the end of your CSS file */
+.container-fluid {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  z-index: 1;
+}
+
+.quote-container {
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem;
+  color: white;
+  padding-top: 6rem;
+}
+
+#quotes {
+  max-width: 90%;
+  font-size: 1.8rem;  /* Reduced from 2.2rem */
+  line-height: 1.3;   /* Reduced from 1.4 */
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+  position: relative;
+  padding: 1.2rem;    /* Reduced from 1.5rem */
+  border-left: 4px solid rgba(255, 255, 255, 0.5);
+  margin-left: 2rem;
+  transition: opacity 0.8s ease-in-out; /* Changed from all 0.5s ease */
+  animation: fadeIn 1.5s ease-in-out;
+  display: flex;      /* Added to create a flex container */
+  flex-direction: column; /* Stack children vertically */
+  justify-content: space-between; /* Space between quote and author */
+  min-height: 200px;  /* Ensure minimum height for content */
+}
+
+#quotes:before {
+  content: "";
+  font-size: 4rem;    /* Reduced from 6rem */
+  position: absolute;
+  left: -1.5rem;      /* Adjusted from -2rem */
+  top: -1.5rem;       /* Adjusted from -2rem */
+  opacity: 0.3;
+  font-family: Georgia, serif;
+  animation: quoteMark 3s ease-in-out infinite alternate;
+}
+
+#quotes:after {
+  content: "";
+  font-size: 4rem;    /* Reduced from 6rem */
+  position: absolute;
+  right: 0;
+  bottom: -3rem;      /* Adjusted from -4rem */
+  opacity: 0.3;
+  font-family: Georgia, serif;
+  animation: quoteMark 3s ease-in-out infinite alternate-reverse;
+}
+
+#quotes .quote-author {
+  display: block;
+  font-size: 1.2rem;  /* Reduced from 1.4rem */
+  font-style: italic;
+  text-align: right;
+  margin-top: 0.8rem; /* Reduced from 1rem */
+  opacity: 0;
+  animation: slideIn 1s ease-in-out forwards;
+  animation-delay: 1s;
+  align-self: flex-end; /* Align to the right */
+}
+
+/* Enhanced quote styling */
+#quotes .quote-text {
+  background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.8) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: gradientShift 8s ease infinite;
+  font-size: 3rem; /* Increased from 1.8rem */
+  margin-bottom: 1.5rem;
+  font-weight: 900; /* Increased from 400 for thicker text */
+  letter-spacing: 0.02em;
+  line-height: 1.4;
+  position: relative;
+  text-shadow: 0 0 2px rgba(255, 255, 255, 0.2); /* Enhanced text shadow */
+}
+
+#quotes .quote-text::before {
+  content: '"';
+  position: absolute;
+  left: -0.6em;
+  top: -0.3em;
+  font-size: 3.5em; /* Increased from 2.5em */
+  opacity: 0.25; /* Slightly increased from 0.2 */
+  font-weight: 700; /* Made thicker */
+  font-family: Georgia, serif;
+}
+
+#quotes .quote-author {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  font-size: 2rem; /* Increased from 1.2rem */
+  font-style: italic;
+  margin-top: 1rem; /* Increased from 0.8rem */
+  opacity: 0;
+  animation: slideIn 1s ease-in-out forwards;
+  animation-delay: 1s;
+  align-self: flex-end;
+}
+
+#quotes .author-dash {
+  margin-right: 0.5rem;
+  font-weight: 400; /* Increased from 300 */
+  opacity: 0.8;
+  font-size: 1.6rem; /* Increased from 1.4rem */
+}
+
+#quotes .author-name {
+  font-weight: 600; /* Increased from 500 */
+  color: white; /* Changed from gradient to solid white */
+  letter-spacing: 0.03em;
+  text-shadow: 0 0 3px rgba(0, 0, 0, 0.5); /* Added shadow for better readability */
+}
+
+/* Add a subtle hover effect to the quote */
+#quotes:hover .quote-text {
+  transform: scale(1.01);
+  transition: transform 0.3s ease;
+}
+
+/* Enhance the animation for quote appearance */
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(20px); filter: blur(3px); }
+  100% { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+
+@keyframes slideIn {
+  0% { opacity: 0; transform: translateX(-20px); filter: blur(2px); }
+  100% { opacity: 0.9; transform: translateX(0); filter: blur(0); }
+}
+
+@keyframes quoteMark {
+  0% { opacity: 0.2; transform: scale(1); }
+  100% { opacity: 0.4; transform: scale(1.1); }
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* When quotes change, trigger this animation */
+.quote-refresh {
+  animation: refreshQuote 0.8s ease-in-out; /* Increased from 0.5s */
+}
+
+@keyframes refreshQuote {
+  0% { opacity: 0.3; transform: translateY(10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.time-container {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-end;
+  padding: 2rem;
+  color: white;
+  padding-top: 1rem;  /* Reduced from 3rem to 1rem to move it higher */
+}
+
+#quotes {
+  max-width: 100%;
+}
+
+#current-time {
+  font-size: 7rem;
+  margin-bottom: 1rem;
+  color: transparent;
+  font-weight: 600;
+  -webkit-text-stroke: 2px white;
+  text-stroke: 2px white;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+  background: none;
+  filter: none;
+  animation: timeGlow 3s ease-in-out infinite alternate;
+}
+
+/* Add time animation keyframes */
+@keyframes timeGlow {
+  0% {
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    -webkit-text-stroke: 2px rgba(255, 255, 255, 0.9);
+    text-stroke: 2px rgba(255, 255, 255, 0.9);
+  }
+  100% {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(173, 216, 230, 0.4);
+    -webkit-text-stroke: 2px white;
+    text-stroke: 2px white;
+  }
+}
+
+/* Add a subtle hover effect for the time */
+.time-container:hover #current-time {
+  animation: timeHover 0.5s forwards;
+}
+
+@keyframes timeHover {
+  to {
+    transform: scale(1.03);
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.9), 0 0 30px rgba(173, 216, 230, 0.6);
+  }
+}
+
+/* Add a subtle pulse animation when time changes */
+.time-update {
+  animation: timePulse 0.5s ease-out;
+}
+
+@keyframes timePulse {
+  0% {
+    transform: scale(1.05);
+  }
+  50% {
+    transform: scale(0.98);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Improved controls styling */
+.controls {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 25px;
+  border-radius: 12px;
+  backdrop-filter: blur(5px);
+  width: 220px;
+  text-align: center;
+  z-index: 100;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.control-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1rem;
+  width: 100%;
+  font-family: "Roboto Slab", serif;
+  letter-spacing: 0.5px;
+}
+
+#change-btn {
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  background-image: url('/static/images/refresh.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: transform 0.3s ease;
+  margin: 0 auto 10px auto;
+  display: block;
+  position: relative;
+}
+
+#change-btn:hover {
+  transform: rotate(180deg);
+  background-image: url('/static/images/refresh.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: transform 0.3s ease;
+}
+
+#change-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Prevent multiple button appearances */
+.control-item {
+  position: relative;
+  overflow: hidden;
+}
+
+#change-btn:hover {
+  transform: rotate(30deg);
+}
+
+/* Updated photo credit styling */
+.photo-credit {
+  font-size: 1.1rem;
+  font-weight: 400;
+  margin: 10px 0;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+#credit {
+  font-weight: 500;
+  font-size: 1.15rem;
+}
+
+.unsplash-link {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.2s ease;
+  display: block;
+  margin-top: 12px;
+  font-weight: 300;
+}
+
+.unsplash-link:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+.photo-credit .icon {
+  margin-right: 8px;
+  animation: rotate 3s linear infinite;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+}
+
+.photo-credit .photographer {
+  font-weight: 500;
+  margin-top: 5px;
+}
+
+.photo-credit .unsplash-link {
+  margin-top: 8px;
+  font-size: 0.75rem;
+  opacity: 0.8;
+  align-self: flex-end;
+  display: flex;
+  align-items: center;
+}
+
+.photo-credit .refresh-btn {
+  margin-top: 8px;
+  cursor: pointer;
+  padding: 5px 10px;
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.photo-credit .refresh-btn:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+.photo-credit .refresh-btn .refresh-icon {
+  margin-right: 5px;
+  width: 14px;
+  height: 14px;
+}
+
+.photo-credit a {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  display: block; /* Make links block elements */
+  margin-top: 4px; /* Add space above links */
+}
+
+.photo-credit a:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.background-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  transition: opacity 0.5s ease-in-out;
+  z-index: 0;
+  filter: blur(3px) brightness(1); /* Increased blur from 3px to 8px */
+}
+
+/* Add an overlay to improve text readability */
+.background-container:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.35); /* Slightly increased opacity */
+  z-index: 1;
+}
+
+/* Add Bootstrap and Material Design essential styles */
+.dropdown-item {
+  display: block;
+  width: 100%;
+  padding: 0.25rem 1.5rem;
+  clear: both;
+  font-weight: 400;
+  text-align: inherit;
+  white-space: nowrap;
+  background-color: transparent;
+  border: 0;
+}
+
+.card {
+  font-size: .875rem;
+  font-weight: 400;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0,0,0,.125);
+  border-radius: .25rem;
+}
+
+/* Add any other Bootstrap classes your extension uses */
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.col, .col-auto, .col-sm, .col-md, .col-lg, .col-xl {
+  position: relative;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.btn {
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: .25rem;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+/* Material design colors */
+.text-primary {
+  color: #007bff !important;
+}
+
+.bg-primary {
+  background-color: #007bff !important;
+}
+
+/* Add responsive utilities */
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+
+/* Add this to your style.css file to handle dropdown without Bootstrap JS */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 10;
+  padding: 5px 0;
+  border-radius: 4px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.dropdown-menu.show {
+  display: block;
+}
+
+/* Animation for dropdown */
+.animation.slideDownIn {
+  animation: slideDown 0.3s ease-out forwards;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fix for refresh button hover issues */
+#change-btn {
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  background-image: url('/static/images/refresh.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: transform 0.3s ease;
+  margin: 0 auto 10px auto;
+  display: block;
+  position: relative;
+}
+
+#change-btn:hover {
+  transform: rotate(180deg);
+  background-image: url('/static/images/refresh.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: transform 0.3s ease;
+}
+
+#change-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Prevent multiple button appearances */
+.control-item {
+  position: relative;
+  overflow: hidden;
+}

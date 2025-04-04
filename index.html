@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>MindSpark - New Tab</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="static/style/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div class="background-container"></div>
+
+
+    <div class="container-fluid">
+      <!-- Quote section (75% width) -->
+      <div class="quote-container">
+        <div id="quotes"></div>
+        
+        <div class="controls">
+          <div class="control-item">
+            <div id="change-btn" title="Change background image"></div>
+          </div>
+          <div class="control-item photo-credit">
+            
+            <span>Photo by : <span id="credit"></span></span>
+          </div>
+          <div class="control-item" id="navigate">
+            <a href="#" class="unsplash-link">See on Unsplash</a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Time section (25% width) -->
+      <div class="time-container">
+        <div id="current-time" class="display-2"></div>
+      </div>
+    </div>
+
+    <!-- Only include main.js since all functionality is now there -->
+    <script src="static/scripts/main.js"></script>
+  </body>
+</html>
