@@ -24,7 +24,7 @@
 
 1. Download or clone this repository:
    ```bash
-   git clone https://github.com/MALATHI-N79/MindSpark.git
+   git clone https://github.com/malathi-n79/MindSpark
 
 2. Open Google Chrome and go to: chrome://extensions/
 
@@ -55,7 +55,7 @@ Images from Unsplash / Pexels
 
 📜 License
 
-MIT License © 2025 [Malathi N]
+This project is licensed under the MIT License. Click [here](LICENSE) to view the full license.
 
 ---
 
